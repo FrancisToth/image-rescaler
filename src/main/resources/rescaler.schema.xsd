@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="imagecommands">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fileset" type="fileset" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="fileset">
+        <xs:sequence>
+            <xs:element name="rescale" type="rescale" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="rename" type="rename" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="sequence" type="sequence" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="include" type="xs:string"/>
+        <xs:attribute name="exclude" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="rescale">
+        <xs:attribute name="ratio" type="xs:string"/>
+        <xs:attribute name="destination" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="rename">
+        <xs:attribute name="pattern" type="xs:string"/>
+        <xs:attribute name="replacement" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="sequence">
+        <xs:sequence>
+            <xs:element name="rescale" type="rescale" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="rename" type="rename" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

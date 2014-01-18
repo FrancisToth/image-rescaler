@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imagecommands xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="rescaler.schema.xsd">
+    <fileset include="*.png,*.jpg" exclude="excluded_image.png">
+        <rescale ratio="1.0" destination="xhdpi"/>
+        <rescale ratio="0.75" destination="hdpi"/>
+        <rescale ratio="0.5" destination="mdpi"/>
+        <rescale ratio="0.25" destination="ldpi"/>
+        <sequence>
+            <rescale ratio="1.0" destination="retina"/>
+            <rename pattern="\.png" replacement="renamed.png"/>
+        </sequence>
+    </fileset>
+</imagecommands>
