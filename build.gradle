@@ -17,10 +17,10 @@ task fatJar(type: Jar) {
 }
 
 artifacts {
-    archives(distributionJar) {
+    archives(fatJar) {
         name "$name-dist"
         type 'dist'
-        builtBy distributionJar
+        builtBy fatJar
     }
 }
 
