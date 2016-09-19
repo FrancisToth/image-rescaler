@@ -19,9 +19,9 @@ public class ImageScalerRunner {
 
         final String originFolderPath = resolveMandatoryParameter(args, 0);
         final String destinationFolderPath = resolveMandatoryParameter(args, 1);
-        final long timeStamp = resolveParameter(args, 2, 0);
-        final String xmlFile = resolveMandatoryParameter(args, 3);
-        final String xsdFile = resolveParameter(args, 4, "image.scaler.xsd");
+        final String xmlFile = resolveMandatoryParameter(args, 2);
+        final String xsdFile = resolveParameter(args, 3, "image.scaler.xsd");
+        final long timeStamp = resolveParameter(args, 4, 0);
 
         final FileWriterDecorator decorator = new FileWriterDecorator(destinationFolderPath);
         XMLFile xmlfile = new XMLFileParser().parseXMLFile(xmlFile, xsdFile);
@@ -38,3 +38,12 @@ public class ImageScalerRunner {
         });
     }
 }
+
+
+/*
+java -cp image-rescaler.jar -jar image-rescaler.jar \
+        /Users/francistoth/Documents/dev/repository/image-rescaler/test/origin \
+        /Users/francistoth/Documents/dev/repository/image-rescaler/test/dest \
+        /Users/francistoth/Documents/dev/repository/image-rescaler/test/rescaler.example.config.xml \
+        /Users/francistoth/Documents/dev/repository/image-rescaler/test/rescaler.schema.xsd
+ */
